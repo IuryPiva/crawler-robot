@@ -50,12 +50,21 @@ curl -d '{"checkin":"27102019", "checkout":"28102019"}' -H "Content-Type: applic
 
 Se quiser rodar o front-end, navegue até a pasta `client`instale as dependências com `npm install` e utilize o Angular CLI para rodar o projeto `ng s`
 
+## Exemplos de interação com pelo chat
+ - Interação completa
+![Screenshot chat](./exemplo-chatbot.png)
+ - Exemplos de cotação de tarifa
+![Screenshot cotacao](./exemplo-cotacao.png)
+ - Exemplos de busca
+![Screenshot busca](./exemplo-busca.png)
+
+
 ## Construído com
 
 * [Cheerio](https://github.com/cheeriojs/cheerio) - Implementation of core jQuery designed specifically for the server.
 * [Express](https://expressjs.com/) - Minimalist web framework for Node.js.
 * [Puppeteer](https://developers.google.com/web/tools/puppeteer) - A Node library which provides a high-level API to control headless Chrome or Chromium over the DevTools Protocol.
-* [IBM Watsom Assistant](https://www.ibm.com/cloud/watson-assistant/) - Watson Assistant is an offering for building conversational interfaces into any application, device, or channel.
+* [IBM Watson Assistant](https://www.ibm.com/cloud/watson-assistant/) - Watson Assistant is an offering for building conversational interfaces into any application, device, or channel.
 * [Angular](https://angular.io/) - A Javascript-based front-end web framework.
 * [Socket.io](https://socket.io) - a JavaScript library for realtime web applications. It enables realtime, bi-directional communication between web clients and servers.
 
