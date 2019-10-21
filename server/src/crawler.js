@@ -9,6 +9,8 @@ const href = ({ checkin, checkout }) =>
 const selectors = require("./selectors");
 
 async function searchRooms({ checkin, checkout }) {
+  console.log({ checkin, checkout })
+
   const browser = await puppeteer.launch();
 
   const page = await browser.newPage();
@@ -61,6 +63,7 @@ async function searchRooms({ checkin, checkout }) {
     .toArray();
   await browser.close();
 
+  console.log({ rooms })
   return rooms;
 }
 

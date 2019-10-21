@@ -1,0 +1,55 @@
+<button mat-fab (click)="onClickUserInfo()">
+  <mat-icon>person</mat-icon>
+</button>
+<div class="chat-container">
+  <mat-card class="main-card">
+    <mat-list class="chat-list">
+      <mat-list-item *ngFor="let message of messages"
+                     [ngClass]="[(message.action === undefined && message.from.id === user.id)? 'chat-list-item': '']"
+                     [style.height]="[message.action === undefined ? 'auto' : '']">
+          <img mat-list-avatar *ngIf="message.action === undefined" [src]="message.from.avatar">
+          <h4 mat-line *ngIf="message.action === undefined && (!message.content || !message.content.results)">
+            <b>{{message.from.name}}</b>
+          </h4>
+          <p mat-line *ngIf="message.action === undefined && (!message.content || !message.content.results)">
+            <span> {{message.content}} </span>
+          </p>
+          <p mat-line *ngIf="message.action === action.JOINED && (!message.content || !message.content.results)" class="chat-notification">
+            <span> <b>{{message.from.name}}</b> joined to the conversation. </span>
+          </p>
+          <p mat-line *ngIf="message.action === action.RENAME && (!message.content || !message.content.results)" class="chat-notification">
+            <span> <b>{{message.content.previousUsername}}</b> is now <b>{{message.content.username}}</b> </span>
+          </p>
+
+
+        <div style="display: flex;" *ngIf="message.content && message.content.results">
+          <mat-card class="example-card" *ngFor="let room of message.content.results">
+            <mat-card-header>
+              <mat-card-title>{{room.name}}</mat-card-title>
+              <mat-card-subtitle>{{room.price}}</mat-card-subtitle>
+            </mat-card-header>
+            <ng-image-slider mat-card-image [images]="getImages(room.images)" #nav></ng-image-slider>
+            <mat-card-content>
+              <p>
+                {{room.description}}
+              </p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </mat-list-item>
+    </mat-list>
+
+    <div class="chat-footer-container">
+      <mat-icon>message</mat-icon>
+      <mat-form-field class="chat-input">
+        <input matInput
+               #inputMessage
+               maxlength="140"
+               placeholder="Type your message"
+               [(ngModel)]="messageContent"
+               (keyup.enter)="sendMessage(messageContent)">
+        <mat-hint align="end">{{inputMessage.value.length}}/140</mat-hint>
+      </mat-form-field>
+    </div>
+  </mat-card>
+</div>
