@@ -50,6 +50,8 @@ curl -d '{"checkin":"27102019", "checkout":"28102019"}' -H "Content-Type: applic
 
 Se quiser rodar o front-end, navegue até a pasta `client`instale as dependências com `npm install` e utilize o Angular CLI para rodar o projeto `ng s`
 
+Para utilizar o chatbot remova `.example` do arquivo `.env.example` e substitua a chave e id.
+
 ## Exemplos de interação com pelo chat
  - Interação completa
 ![Screenshot chat](./exemplo-chatbot.png)
